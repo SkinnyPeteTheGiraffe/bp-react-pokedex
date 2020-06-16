@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 html, body, #root {
   height: 100%;
   width: 100%;
@@ -10,6 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to right top, #ff7141, #ff6596, #d981dc, #83a0fa, #12b2eb);
+  background-attachment: fixed;
 }
 
 code {

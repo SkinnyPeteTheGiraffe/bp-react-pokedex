@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container } from '@material-ui/core';
 import LoadingIndicator, { LoadingIndicatorProps } from 'react-loading-indicator';
 
 const LoadingAlert: FC<LoadingIndicatorProps> = props => {
     return (
-        <Container className="d-flex justify-content-center align-items-center h-100">
+        <Container fixed>
             <div className="my-auto">
                 <LoadingIndicator {...props} />
             </div>

@@ -1,6 +1,6 @@
 import { Pokemon } from '../types/Pokemon';
 import { PokemonList } from '../types/PokemonList';
-import Transformer from '../utils/Transformer';
+import Transformer from '../utils/transformer';
 
 /**
  * Simplistic service to retrieve Pokedex data JSON

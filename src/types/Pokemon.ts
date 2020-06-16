@@ -28,7 +28,7 @@ export interface Pokemon<T extends (string | number), M extends (string | Measur
     avgSpawns: number;
     spawnTime: string;
     multipliers: number[],
-    weakness: PokemonType[],
-    prevEvolutions: PokemonEvolution<T>[],
-    nextEvolutions: PokemonEvolution<T>[]
+    weaknesses: PokemonType[],
+    prevEvolution: PokemonEvolution<T>[],
+    nextEvolution: PokemonEvolution<T>[]
 }

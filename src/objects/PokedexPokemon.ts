@@ -21,13 +21,13 @@ export default class PokedexPokemon implements Pokemon<number, Measurement> {
     public readonly img: string;
     public readonly multipliers: number[];
     public readonly name: string;
-    public readonly nextEvolutions: PokemonEvolution<number>[];
+    public readonly nextEvolution: PokemonEvolution<number>[];
     public readonly num: number;
-    public readonly prevEvolutions: PokemonEvolution<number>[];
+    public readonly prevEvolution: PokemonEvolution<number>[];
     public readonly spawnChance: string;
     public readonly spawnTime: string;
     public readonly type: PokemonType[];
-    public readonly weakness: PokemonType[];
+    public readonly weaknesses: PokemonType[];
     public readonly weight: Measurement;
 
     constructor(pokemon: Pokemon<string, string>) {
@@ -44,10 +44,10 @@ export default class PokedexPokemon implements Pokemon<number, Measurement> {
         this.weight = PokedexPokemon.parseMeasurement(pokemon.weight);
         this.spawnChance = pokemon.spawnChance;
         this.spawnTime = pokemon.spawnTime;
-        this.nextEvolutions = PokedexPokemon.parseEvolution(pokemon.nextEvolutions);
-        this.prevEvolutions = PokedexPokemon.parseEvolution(pokemon.prevEvolutions);
+        this.nextEvolution = PokedexPokemon.parseEvolution(pokemon.nextEvolution);
+        this.prevEvolution = PokedexPokemon.parseEvolution(pokemon.prevEvolution);
         this.type = pokemon.type;
-        this.weakness = pokemon.type;
+        this.weaknesses = pokemon.weaknesses;
     }
 
     private static parseMeasurement(input: string): Measurement {
