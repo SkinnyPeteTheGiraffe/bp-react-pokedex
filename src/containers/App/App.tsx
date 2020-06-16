@@ -1,39 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import PokemonList from '../../components/PokemonList';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useStoreActions, Actions } from 'easy-peasy';
+
 import PokedexAppBar from '../../components/PokedexAppBar';
-import PokedexPokemon from '../../objects/PokedexPokemon';
-import LoadingAlert from '../../components/LoadingAlert';
-import { fetchPokedexData } from '../../services';
+import { StoreModel } from '../../store/models/store';
+import PokemonList from '../../components/PokemonList';
 
 const App = () => {
-    const [loading, setLoading] = useState(false);
-    const [data, setData] = useState<PokedexPokemon[]>([]);
-    const [display, setDisplay] = useState<PokedexPokemon[]>([]);
+    const fetchPokemon = useStoreActions(
+        (actions: Actions<StoreModel>) => actions.pokemon.fetch
+    );
+
     useEffect(() => {
-        setLoading(true);
-        fetchPokedexData((input) => {
-            if (input && input.pokemon && input.pokemon.length > 0) {
-                if (
-                    data.length < 1 ||
-                    display.length < 1 ||
-                    data.length !== input.pokemon.length
-                ) {
-                    const pokemon: PokedexPokemon[] = [];
-                    input.pokemon.forEach((p) => {
-                        pokemon.push(new PokedexPokemon(p));
-                    });
-                    setData(pokemon);
-                    setDisplay(data);
-                    setLoading(false);
-                }
-            }
-        });
-    }, [data]);
+        fetchPokemon();
+    }, [fetchPokemon]);
     return (
-        <div className="h-100">
-            <PokedexAppBar setDisplay={setDisplay} data={data}/>
-            {loading ? <LoadingAlert segmentWidth={50} /> : <PokemonList data={display} />}
-        </div>
+        <Router>
+            <div className="h-100">
+                <PokedexAppBar />
+                <Switch>
+                    <Route path="/">
+                        <PokemonList />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
     );
 };
 

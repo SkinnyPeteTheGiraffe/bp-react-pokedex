@@ -1,31 +1,26 @@
-import React, { Dispatch, FC, FormEvent, SetStateAction, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import PokedexPokemon from '../../objects/PokedexPokemon';
 import { TextField } from '@material-ui/core';
-import _ from 'lodash';
 import { useStyles } from '../PokedexAppBar/PokedexAppBar.styles';
+import { Actions, State, useStoreActions, useStoreState } from 'easy-peasy';
+import { StoreModel } from '../../store/models/store';
 
-export type PokeSearchBarProps = {
-    data: PokedexPokemon[],
-    setDisplay: Dispatch<SetStateAction<PokedexPokemon[]>>;
-};
-
-const PokeSearchBar: FC<PokeSearchBarProps> = ({
-    data,
-    setDisplay
-}) => {
+const PokeSearchBar = () => {
+    const updateSearchTerm = useStoreActions(
+        (actions: Actions<StoreModel>) => actions.pokemon.updateSearchTerm
+    );
+    const data = useStoreState(
+        (state: State<StoreModel>) => state.pokemon.display
+    );
     const handleUpdate = (input?: string) => {
-        if (input && input.length > 0) {
-            setDisplay(data.filter(d => d.name.toLowerCase().search(input.toLowerCase()) >= 0))
-        } else {
-            setDisplay(data)
-        }
+        updateSearchTerm(input || '');
     };
     const [value, setValue] = useState('');
     const classes = useStyles();
     return (
         <div style={{ width: 300 }}>
             <Autocomplete
+                value={value}
                 selectOnFocus
                 clearOnBlur
                 handleHomeEndKeys
@@ -44,9 +39,9 @@ const PokeSearchBar: FC<PokeSearchBarProps> = ({
                         variant="outlined"
                     />
                 )}
-                onInput={(event: FormEvent<HTMLInputElement>) => {
-                    const target = event.target as HTMLInputElement;
-                    handleUpdate(target?.value);
+                onInputChange={(event: ChangeEvent<any>, update: string) => {
+                    handleUpdate(update);
+                    setValue(update);
                 }}
                 onChange={(event, value) => {
                     if (!value) {

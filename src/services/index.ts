@@ -1,1 +1,0 @@
-export { fetchPokedexData } from './pokedex';

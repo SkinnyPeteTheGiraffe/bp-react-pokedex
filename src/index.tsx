@@ -10,17 +10,21 @@ import App from './containers/App/App';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
+import { StoreProvider } from 'easy-peasy';
+import store from './store';
 
 const { StyleRoot } = radium;
 
 
 ReactDOM.render(
     <React.StrictMode>
-        <CssBaseline>
-            <StyleRoot className="h-100">
-                <App />
-            </StyleRoot>
-        </CssBaseline>
+        <StoreProvider store={store}>
+            <CssBaseline>
+                <StyleRoot className="h-100">
+                    <App />
+                </StyleRoot>
+            </CssBaseline>
+        </StoreProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
