@@ -3,6 +3,8 @@
  * state is stored within each Pokemon type, and
  * defines both next and previous evolution steps.
  *
+ * @param N the number types, can be string or number
+ *
  * @author Bobby Plunkett
  * @version 1.0.0
  */

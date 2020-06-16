@@ -3,7 +3,7 @@ import PokemonList from '../../components/PokemonList';
 
 function App() {
   return (
-    <div className="App">
+    <div className="h-100">
       <PokemonList />
     </div>
   );

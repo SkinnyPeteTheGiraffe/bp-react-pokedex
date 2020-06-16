@@ -3,6 +3,14 @@ import { PokemonEvolution } from '../types/PokemonEvolution';
 import { PokemonType } from '../types/PokemonType';
 import { Measurement } from '../types/Measurement';
 
+/**
+ * A implementation of {@link Pokemon} providing
+ * functions that allow for parsing of raw
+ * data from a response.
+ *
+ * @author Bobby Plunkett
+ * @version 1.0.0
+ */
 export default class PokedexPokemon implements Pokemon<number, Measurement> {
     public readonly avgSpawns: number;
     public readonly candy: string;

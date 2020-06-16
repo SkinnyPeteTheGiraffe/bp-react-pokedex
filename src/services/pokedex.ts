@@ -1,4 +1,6 @@
 import { Pokemon } from '../types/Pokemon';
+import { PokemonList } from '../types/PokemonList';
+import Transformer from '../utils/Transformer';
 
 /**
  * Simplistic service to retrieve Pokedex data JSON
@@ -8,7 +10,7 @@ import { Pokemon } from '../types/Pokemon';
  * @param callback the function to be called upon successful response
  */
 export const fetchPokedexData: (
-    callback: (input: Pokemon<string, string>[]) => void
+    callback: (input: PokemonList<string, string>) => void
 ) => void = async (callback) => {
     const url = process.env.REACT_APP_POKEDEX_URL;
     if (!url || url.length <= 0) {
@@ -21,10 +23,8 @@ export const fetchPokedexData: (
         credentials: 'same-origin',
     })
         .then(async d => {
-            const json: any = await d.json();
-            if (json.hasOwnProperty('pokemon')) {
-                callback(json.pokemon as Pokemon<string, string>[])
-            }
+            const json = await d.json();
+            callback(Transformer.fetch(json) as PokemonList<string, string>)
 
         })
         .catch((err) => {
