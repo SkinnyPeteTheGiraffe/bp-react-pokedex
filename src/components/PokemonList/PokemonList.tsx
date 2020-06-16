@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { fetchDataViaUrl } from '../../services';
+import { fetchPokedexData } from '../../services';
+import PokedexPokemon from '../../objects/PokedexPokemon';
 
 const PokemonList = () => {
-    const [data, setData] = useState([]);
-
+    const [data, setData] = useState([] as PokedexPokemon[]);
     useEffect(() => {
-        if (url) {
-            fetchDataViaUrl(url, (results) => {
-                setData(results)
+        fetchPokedexData(input => {
+            const pokemon: PokedexPokemon[] = [];
+            input.forEach(p => {
+                pokemon.push(new PokedexPokemon(p));
             });
-        }
-    }, [data])
+            setData(pokemon);
+        });
+    }, [data]);
     return (
         <div>
-            <h2>{url}</h2>
+            <h2>{data.length}</h2>
         </div>
     );
 };

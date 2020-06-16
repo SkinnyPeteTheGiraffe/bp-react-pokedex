@@ -1,1 +1,1 @@
-export { fetchDataViaUrl } from './general';
+export { fetchPokedexData } from './pokedex';
