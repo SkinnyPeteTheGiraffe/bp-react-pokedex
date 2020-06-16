@@ -1,0 +1,1 @@
+export { fetchDataViaUrl } from './general';
