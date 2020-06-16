@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import { AppBar, InputBase, Toolbar, Typography } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
 import { useStyles } from './PokedexAppBar.styles';
 import PokeSearchBar from '../PokeSearchBar/PokeSearchBar';
 import PokedexPokemon from '../../objects/PokedexPokemon';
 
 type PokedexAppBarProps = {
-    data: PokedexPokemon[]
+    data: PokedexPokemon[],
+    setDisplay: Dispatch<SetStateAction<PokedexPokemon[]>>;
 };
 
-const PokedexAppBar: FC<PokedexAppBarProps> = ({ data }) => {
+const PokedexAppBar: FC<PokedexAppBarProps> = ({ data, setDisplay }) => {
     const classes = useStyles();
     return (
         <AppBar position="static" color="default" className={classes.root}>
@@ -19,10 +19,7 @@ const PokedexAppBar: FC<PokedexAppBarProps> = ({ data }) => {
                 </Typography>
                 <div className={classes.grow} />
                 <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                        <SearchIcon />
-                    </div>
-                    <PokeSearchBar data={data} />
+                    <PokeSearchBar setDisplay={setDisplay} data={data} />
                 </div>
             </Toolbar>
         </AppBar>

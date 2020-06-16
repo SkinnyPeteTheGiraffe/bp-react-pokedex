@@ -31,7 +31,7 @@ const App = () => {
     }, [data]);
     return (
         <div className="h-100">
-            <PokedexAppBar data={display}/>
+            <PokedexAppBar setDisplay={setDisplay} data={data}/>
             {loading ? <LoadingAlert segmentWidth={50} /> : <PokemonList data={display} />}
         </div>
     );
