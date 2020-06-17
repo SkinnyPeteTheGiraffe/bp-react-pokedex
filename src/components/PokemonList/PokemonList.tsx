@@ -28,7 +28,7 @@ const PokemonList: FC = () => {
     );
     return (
         <Container maxWidth="lg">
-            <Grid className={classes.root} spacing={2}>
+            <Grid className={classes.root}>
                 <div className={classes.filters}>
                     <ExpansionPanel>
                         <ExpansionPanelSummary

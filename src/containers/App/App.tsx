@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { Route, useLocation, Switch } from 'react-router-dom';
-import { useStoreActions, Actions, ThunkCreator } from 'easy-peasy';
-import { AnimatedSwitch } from 'react-router-transition';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { Actions, ThunkCreator, useStoreActions } from 'easy-peasy';
 
 import PokedexAppBar from '../../components/PokedexAppBar';
 import { StoreModel } from '../../store/models/store';
@@ -35,7 +34,7 @@ const App = () => {
                 }
             })
             .catch((err: Error) => console.error(err)); // Could use better error reporting
-    }, []);
+    }, [location, fetchPokemon, setCurrentPokemon]);
     return (
         <>
             <PokedexAppBar />

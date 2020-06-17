@@ -5,34 +5,26 @@ import PokedexPokemon from '../../objects/PokedexPokemon';
 import { StoreModel } from '../models/store';
 import { ToggleFilter } from '../../types/ToggleFilter';
 import { PokemonType } from '../../types/PokemonType';
+import { pokemonFilter } from '../../utils/pokemonUtils';
 
 export default {
     display: computed<PokemonModel, PokedexPokemon[], StoreModel, []>(
         (state) => {
-            return state.list
-                .filter(
-                    (d) =>
-                        !state.searchTerm ||
-                        state.searchTerm.length <= 0 ||
-                        d.name
-                            .toLowerCase()
-                            .search(state.searchTerm.toLowerCase()) >= 0
-                )
-                .filter((pokemon) => {
-                    return pokemon.type.every((type) => {
-                        return state.filters.some(
-                            (s) => s.typeEnabled && s.type === type
-                        );
-                    });
-                })
-                .filter((pokemon) => {
-                    // I used exact here meaning all filters must match, some could also be used leaving if any match
-                    return pokemon.weaknesses.every((type) => {
-                        return state.filters.some(
-                            (s) => s.weaknessEnabled && s.type === type
-                        );
-                    });
-                });
+            return (
+                state.list
+                    .filter(
+                        (d) =>
+                            !state.searchTerm ||
+                            state.searchTerm.length <= 0 ||
+                            d.name
+                                .toLowerCase()
+                                .search(state.searchTerm.toLowerCase()) >= 0
+                    )
+                    // Filter objects based on Pokemon types
+                    .filter(pokemonFilter('type', state.filters))
+                    // Filter objects based  on Pokemon weaknesses
+                    .filter(pokemonFilter('weakness', state.filters))
+            );
         }
     ),
     toggleFilter: action<PokemonModel, ToggleFilter<PokemonType>>(

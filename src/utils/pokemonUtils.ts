@@ -1,4 +1,6 @@
 import { PokemonType } from '../types/PokemonType';
+import { ToggleFilter } from '../types/ToggleFilter';
+import PokedexPokemon from '../objects/PokedexPokemon';
 
 export const getColorForType = (type: PokemonType): string => {
     switch (type) {
@@ -33,4 +35,29 @@ export const getColorForType = (type: PokemonType): string => {
         case PokemonType.Dragon:
             return '#61CAD9';
     }
+};
+
+/**
+ * Filter function which can be used for filtering both
+ * Pokemon types and weaknesses. This method uses a strict
+ * filter, meaning if once filter returns false, the entry
+ * will be excluded. This can be reversed by simpling replacing
+ * every() with some(), which will then allowing if any match to
+ * keep the entry.
+ *
+ * @param mode the mode of filtering, weakness or type
+ * @param filters to apply to the dataset
+ */
+export const pokemonFilter = (
+    mode: 'type' | 'weakness',
+    filters: ToggleFilter<PokemonType>[]
+) => (pokemon: PokedexPokemon): boolean => {
+    const data = mode === 'weakness' ? pokemon.weaknesses : pokemon.type;
+    return data.every((type) => {
+        return filters.some(
+            (s) =>
+                ((mode === 'weakness' && s.weaknessEnabled) || s.typeEnabled) &&
+                s.type === type
+        );
+    });
 };

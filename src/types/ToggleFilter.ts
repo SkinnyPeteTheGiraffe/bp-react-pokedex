@@ -1,7 +1,7 @@
 /**
- * A definition of a Toggle State, which holds a reference
- * of a and a toggleable boolean attribute
- * to be used for filtering functions.
+ * A definition of a Toggle State, which holds two references for
+ * both type and weakness attributes. This allows the same state
+ * object to be reused.
  *
  * @param T type of object to be used as filter
  * @author Bobby Plunkett
