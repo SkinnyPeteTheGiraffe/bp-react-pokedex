@@ -2,8 +2,18 @@ import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+        wrapper: {
+            width: 300,
+            [theme.breakpoints.down('xs')]: {
+                width: '100%',
+                marginRight: 0
+            }
+        },
         root: {
-            height: 80
+            height: 80,
+            display: 'flex',
+            minWidth: 300,
+            width: '100%',
         },
         grow: {
             flexGrow: 1,
@@ -24,7 +34,6 @@ export const useStyles = makeStyles((theme: Theme) =>
             '&:hover': {
                 backgroundColor: fade(theme.palette.common.white, 0.25),
             },
-            marginRight: theme.spacing(2),
             marginLeft: 0,
             width: '100%',
             [theme.breakpoints.up('sm')]: {
@@ -42,7 +51,9 @@ export const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
         },
         inputRoot: {
-            color: 'inherit'
+            color: 'inherit',
+            minWidth: 300,
+            width: '100%',
         },
         inputInput: {
             padding: theme.spacing(1, 1, 1, 0),
@@ -50,9 +61,7 @@ export const useStyles = makeStyles((theme: Theme) =>
             paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
             transition: theme.transitions.create('width'),
             width: '100%',
-            [theme.breakpoints.up('md')]: {
-                width: '20ch',
-            },
+
         },
         sectionDesktop: {
             display: 'none',

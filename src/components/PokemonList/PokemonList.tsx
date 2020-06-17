@@ -28,7 +28,7 @@ const PokemonList: FC = () => {
     );
     return (
         <Container maxWidth="lg">
-            <Grid container className={classes.root} spacing={2}>
+            <Grid className={classes.root} spacing={2}>
                 <div className={classes.filters}>
                     <ExpansionPanel>
                         <ExpansionPanelSummary
@@ -75,7 +75,7 @@ const PokemonList: FC = () => {
                     </ExpansionPanel>
                 </div>
                 <Grid item xs={12}>
-                    <Grid container justify="center" spacing={2}>
+                    <Grid container justify="space-evenly" spacing={2}>
                         {data && data.length > 0 ? (
                             data.map((pokemon) => (
                                 <Grid key={pokemon.id} item>

@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 1,
             marginTop: theme.spacing(10),
-            paddingTop: theme.spacing(1)
+            padding: theme.spacing(1, 0, 0,0)
         },
         filters: {
             margin: theme.spacing(2, 0)

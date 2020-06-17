@@ -19,22 +19,19 @@ export default {
                             .search(state.searchTerm.toLowerCase()) >= 0
                 )
                 .filter((pokemon) => {
-                    for (let type of pokemon.type) {
-                        const filter = state.filters.find(s => s.type === type);
-                        if (filter) {
-                            return filter.typeEnabled;
-                        }
-                    }
-                    return false;
+                    return pokemon.type.every((type) => {
+                        return state.filters.some(
+                            (s) => s.typeEnabled && s.type === type
+                        );
+                    });
                 })
                 .filter((pokemon) => {
-                    for (let type of pokemon.weaknesses) {
-                        const filter = state.filters.find(s => s.type === type);
-                        if (filter) {
-                            return filter.weaknessEnabled;
-                        }
-                    }
-                    return false;
+                    // I used exact here meaning all filters must match, some could also be used leaving if any match
+                    return pokemon.weaknesses.every((type) => {
+                        return state.filters.some(
+                            (s) => s.weaknessEnabled && s.type === type
+                        );
+                    });
                 });
         }
     ),
@@ -56,7 +53,13 @@ export default {
             }
         }
     ),
-    fetch: thunk<PokemonModel, void, any, StoreModel, Promise<PokedexPokemon[]>>(async (actions) => {
+    fetch: thunk<
+        PokemonModel,
+        void,
+        any,
+        StoreModel,
+        Promise<PokedexPokemon[]>
+    >(async (actions) => {
         const data = await service.fetch();
         if (data && data.pokemon && data.pokemon.length > 0) {
             let pokemon = data.pokemon.map((p) => new PokedexPokemon(p));
