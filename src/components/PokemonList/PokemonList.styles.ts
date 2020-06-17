@@ -4,7 +4,20 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            flexGrow: 1
+            flexGrow: 1,
+            paddingTop: theme.spacing(1),
+        },
+        filters: {
+            margin: theme.spacing(2, 0)
+        },
+        heading: {
+            fontSize: theme.typography.pxToRem(15),
+            fontWeight: theme.typography.fontWeightRegular,
+        },
+        subtitle: {
+            color: '#fafafa',
+            padding: theme.spacing(0, 5),
+            marginBottom: theme.spacing(1)
         },
         media: {
             height: 200,

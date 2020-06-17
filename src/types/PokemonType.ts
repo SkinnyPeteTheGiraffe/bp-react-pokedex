@@ -15,7 +15,6 @@ export enum PokemonType {
     Rock = 'Rock',
     Bug = 'Bug',
     Ghost = 'Ghost',
-    Steel = 'Steel',
     Fire = 'Fire',
     Water = 'Water',
     Grass = 'Grass',
@@ -23,6 +22,4 @@ export enum PokemonType {
     Psychic = 'Psychic',
     Ice = 'Ice',
     Dragon = 'Dragon',
-    Fairy = 'Fairy',
-    Dark = 'Dark',
 }

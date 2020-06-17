@@ -18,8 +18,6 @@ export const getColorForType = (type: PokemonType): string => {
             return '#3B9950';
         case PokemonType.Ghost:
             return '#906790';
-        case PokemonType.Steel:
-            return '#42BD94';
         case PokemonType.Fire:
             return '#FD4C5A';
         case PokemonType.Water:
@@ -34,9 +32,5 @@ export const getColorForType = (type: PokemonType): string => {
             return '#82dffa';
         case PokemonType.Dragon:
             return '#61CAD9';
-        case PokemonType.Fairy:
-            return '#EA1369';
-        case PokemonType.Dark:
-            return '#5A5979';
     }
 };

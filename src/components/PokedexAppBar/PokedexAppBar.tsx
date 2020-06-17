@@ -3,7 +3,6 @@ import { AppBar, Grid, Toolbar, Typography } from '@material-ui/core';
 import { useStyles } from './PokedexAppBar.styles';
 import PokeSearchBar from '../PokeSearchBar/PokeSearchBar';
 
-
 const PokedexAppBar = () => {
     const classes = useStyles();
     return (

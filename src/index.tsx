@@ -4,6 +4,7 @@ import 'dotenv/config';
 import React from 'react';
 import radium from 'radium';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 
 import App from './containers/App/App';
@@ -15,16 +16,17 @@ import store from './store';
 
 const { StyleRoot } = radium;
 
-
 ReactDOM.render(
     <React.StrictMode>
-        <StoreProvider store={store}>
-            <CssBaseline>
-                <StyleRoot className="h-100">
-                    <App />
-                </StyleRoot>
-            </CssBaseline>
-        </StoreProvider>
+        <Router>
+            <StoreProvider store={store}>
+                <CssBaseline>
+                    <StyleRoot className="h-100">
+                        <App />
+                    </StyleRoot>
+                </CssBaseline>
+            </StoreProvider>
+        </Router>
     </React.StrictMode>,
     document.getElementById('root')
 );
