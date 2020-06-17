@@ -1,4 +1,4 @@
-import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { createStyles, fade, makeStyles, Theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -6,8 +6,8 @@ export const useStyles = makeStyles((theme: Theme) =>
             width: 300,
             [theme.breakpoints.down('xs')]: {
                 width: '100%',
-                marginRight: 0
-            }
+                marginRight: 0,
+            },
         },
         root: {
             height: 80,
@@ -61,7 +61,6 @@ export const useStyles = makeStyles((theme: Theme) =>
             paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
             transition: theme.transitions.create('width'),
             width: '100%',
-
         },
         sectionDesktop: {
             display: 'none',
@@ -75,5 +74,5 @@ export const useStyles = makeStyles((theme: Theme) =>
                 display: 'none',
             },
         },
-    }),
+    })
 );

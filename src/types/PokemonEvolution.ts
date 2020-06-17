@@ -8,7 +8,7 @@
  * @author Bobby Plunkett
  * @version 1.0.0
  */
-export interface PokemonEvolution<N extends (string | number)> {
+export interface PokemonEvolution<N extends string | number> {
     num: N;
     name: string;
 }

@@ -15,9 +15,9 @@ export const PokemonImageContainer = styled.div<PokemonColorProps>`
     background-image: linear-gradient(
         to bottom,
         ${({ theme }) =>
-    `${Color(theme)
-        .lighten(0.25)
-        .fade(0.75)}, ${theme}, ${Color(theme).darken(0.25)}`}
+            `${Color(theme).lighten(0.25).fade(0.75)}, ${theme}, ${Color(
+                theme
+            ).darken(0.25)}`}
     );
     h4 {
         position: absolute;

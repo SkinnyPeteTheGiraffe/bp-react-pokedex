@@ -1,4 +1,4 @@
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -7,10 +7,10 @@ export const useStyles = makeStyles((theme: Theme) =>
             width: 320,
             [theme.breakpoints.up('sm')]: {
                 width: 400,
-            }
+            },
         },
         pokemonName: {
-            marginBottom: 0
-        }
-    }),
+            marginBottom: 0,
+        },
+    })
 );

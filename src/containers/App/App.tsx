@@ -13,9 +13,10 @@ const App = () => {
     const setCurrentPokemon = useStoreActions(
         (actions: Actions<StoreModel>) => actions.pokemon.setCurrent
     );
-    const fetchPokemon = useStoreActions<Actions<StoreModel>, ThunkCreator<any, Promise<PokedexPokemon[]>>>(
-        (actions: Actions<StoreModel>) => actions.pokemon.fetch
-    );
+    const fetchPokemon = useStoreActions<
+        Actions<StoreModel>,
+        ThunkCreator<any, Promise<PokedexPokemon[]>>
+    >((actions: Actions<StoreModel>) => actions.pokemon.fetch);
     useEffect(() => {
         fetchPokemon(undefined)
             .then((data) => {
@@ -25,7 +26,7 @@ const App = () => {
                     if (raw && raw.length > 0) {
                         const id = parseInt(raw);
                         if (id > 0 && id <= 151) {
-                            const current = data.find(p => p.id === id);
+                            const current = data.find((p) => p.id === id);
                             if (current) {
                                 setCurrentPokemon(current);
                             }

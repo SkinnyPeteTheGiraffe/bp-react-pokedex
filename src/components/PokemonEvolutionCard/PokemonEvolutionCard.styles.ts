@@ -1,4 +1,4 @@
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(() =>
     createStyles({
@@ -7,7 +7,7 @@ export const useStyles = makeStyles(() =>
             width: 84,
         },
         pokemonName: {
-            marginBottom: 0
-        }
-    }),
+            marginBottom: 0,
+        },
+    })
 );

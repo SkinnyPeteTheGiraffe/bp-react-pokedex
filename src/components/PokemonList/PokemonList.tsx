@@ -35,16 +35,28 @@ const PokemonList: FC = () => {
                             expandIcon={<ExpandMoreIcon />}
                             id="panel1a-header"
                         >
-                            <Typography className={classes.heading}>Filter By Type</Typography>
+                            <Typography className={classes.heading}>
+                                Filter By Type
+                            </Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Grid container justify="flex-start" spacing={2}>
                                 {filters.map((f) => (
-                                    <Grid key={_.kebabCase(f.type).toLowerCase() + Date.now()} item>
+                                    <Grid
+                                        key={
+                                            _.kebabCase(f.type).toLowerCase() +
+                                            Date.now()
+                                        }
+                                        item
+                                    >
                                         <ToggleChip
                                             type="type"
                                             targetType={f.type}
-                                            selected={f.typeEnabled === 'skip' ? false : f.typeEnabled}
+                                            selected={
+                                                f.typeEnabled === 'skip'
+                                                    ? false
+                                                    : f.typeEnabled
+                                            }
                                         />
                                     </Grid>
                                 ))}
@@ -57,7 +69,9 @@ const PokemonList: FC = () => {
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <Typography className={classes.heading}>Filter By Weakness</Typography>
+                            <Typography className={classes.heading}>
+                                Filter By Weakness
+                            </Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Grid container justify="flex-start" spacing={2}>
@@ -66,7 +80,11 @@ const PokemonList: FC = () => {
                                         <ToggleChip
                                             type="weakness"
                                             targetType={f.type}
-                                            selected={f.weaknessEnabled === 'skip' ? false : f.weaknessEnabled}
+                                            selected={
+                                                f.weaknessEnabled === 'skip'
+                                                    ? false
+                                                    : f.weaknessEnabled
+                                            }
                                         />
                                     </Grid>
                                 ))}
@@ -89,7 +107,9 @@ const PokemonList: FC = () => {
                                 gutterBottom
                             >
                                 {searchTerm.length <= 0 &&
-                                filters.some((f) => f.typeEnabled || f.weaknessEnabled)
+                                filters.some(
+                                    (f) => f.typeEnabled || f.weaknessEnabled
+                                )
                                     ? 'Loading...'
                                     : `No matching results...`}
                             </Typography>

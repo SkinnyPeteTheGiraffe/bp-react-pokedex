@@ -13,12 +13,15 @@ import { Measurement } from './Measurement';
  * @author Bobby Plunkett
  * @version 1.0.0
  */
-export interface Pokemon<T extends (string | number), M extends (string | Measurement)> {
-    id: number,
-    num: T,
-    name: string,
-    img: string,
-    type: PokemonType[],
+export interface Pokemon<
+    T extends string | number,
+    M extends string | Measurement
+> {
+    id: number;
+    num: T;
+    name: string;
+    img: string;
+    type: PokemonType[];
     height: M;
     weight: M;
     candy: string;
@@ -27,8 +30,8 @@ export interface Pokemon<T extends (string | number), M extends (string | Measur
     spawnChance: string;
     avgSpawns: number;
     spawnTime: string;
-    multipliers: number[],
-    weaknesses: PokemonType[],
-    prevEvolution: PokemonEvolution<T>[],
-    nextEvolution: PokemonEvolution<T>[]
+    multipliers: number[];
+    weaknesses: PokemonType[];
+    prevEvolution: PokemonEvolution<T>[];
+    nextEvolution: PokemonEvolution<T>[];
 }

@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { Container } from '@material-ui/core';
 import LoadingIndicator, { LoadingIndicatorProps } from 'react-loading-indicator';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(() =>
     createStyles({
@@ -11,12 +10,12 @@ export const useStyles = makeStyles(() =>
             height: '100%',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
-        }
-    }),
+            alignItems: 'center',
+        },
+    })
 );
 
-const LoadingAlert: FC<LoadingIndicatorProps> = props => {
+const LoadingAlert: FC<LoadingIndicatorProps> = (props) => {
     const classes = useStyles();
     return (
         <Container fixed className={classes.root}>

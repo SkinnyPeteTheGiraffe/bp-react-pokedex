@@ -20,11 +20,14 @@ export interface PokemonModel {
 
 const pokemonModel: PokemonModel = {
     list: [],
-    filters: Object.values(PokemonType).map(e => ({
-        typeEnabled: true,
-        weaknessEnabled: true,
-        type: e as PokemonType
-    } as ToggleFilter<PokemonType>)),
+    filters: Object.values(PokemonType).map(
+        (e) =>
+            ({
+                typeEnabled: true,
+                weaknessEnabled: true,
+                type: e as PokemonType,
+            } as ToggleFilter<PokemonType>)
+    ),
     current: undefined,
     searchTerm: '',
     ...actions,

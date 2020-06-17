@@ -10,7 +10,7 @@ export const PokemonTypeChip = styled(Chip)<PokemonColorProps>`
     height: 15px;
     margin-right: 5px;
     margin-bottom: 5px;
-    background: ${props => props.theme};
+    background: ${(props) => props.theme};
     color: #fafafa;
     font-weight: 400;
     font-size: 12px;
@@ -28,9 +28,9 @@ export const PokemonImageContainer = styled.div<PokemonColorProps>`
     background-image: linear-gradient(
         to bottom,
         ${({ theme }) =>
-    `${Color(theme)
-        .lighten(0.25)
-        .fade(0.75)}, ${theme}, ${Color(theme).darken(0.25)}`}
+            `${Color(theme).lighten(0.25).fade(0.75)}, ${theme}, ${Color(
+                theme
+            ).darken(0.25)}`}
     );
     h4 {
         position: absolute;

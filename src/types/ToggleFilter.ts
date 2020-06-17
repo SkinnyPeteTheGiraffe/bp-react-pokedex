@@ -8,7 +8,7 @@
  * @version 1.0.0
  */
 export interface ToggleFilter<T> {
-    type: T,
-    typeEnabled: boolean | 'skip',
-    weaknessEnabled: boolean | 'skip'
+    type: T;
+    typeEnabled: boolean | 'skip';
+    weaknessEnabled: boolean | 'skip';
 }

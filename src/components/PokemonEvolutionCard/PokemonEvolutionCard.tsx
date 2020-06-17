@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Card, CardActionArea, CardContent, Typography } from '@material-ui/core';
 import { getColorForType } from '../../utils/pokemonUtils';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { PokemonImageContainer } from './PokemonEvolutionCard.components';
 import { useStyles } from './PokemonEvolutionCard.styles';
@@ -18,15 +18,13 @@ const PokemonEvolutionCard: FC<PokemonCardProps> = ({ pokemon }) => {
     const classes = useStyles();
     return (
         <Card className={classes.card}>
-            <CardActionArea onClick={() => {
-                setCurrent(pokemon);
-                history.push(`/pokedex/${pokemon.id}`);
-            }}>
-                <PokemonImageContainer
-                    theme={getColorForType(
-                        pokemon.type[0]
-                    )}
-                >
+            <CardActionArea
+                onClick={() => {
+                    setCurrent(pokemon);
+                    history.push(`/pokedex/${pokemon.id}`);
+                }}
+            >
+                <PokemonImageContainer theme={getColorForType(pokemon.type[0])}>
                     <LazyLoadImage
                         alt={pokemon.name}
                         height={80}
@@ -34,13 +32,7 @@ const PokemonEvolutionCard: FC<PokemonCardProps> = ({ pokemon }) => {
                         width={80}
                         placeholder={<LoadingAlert segmentWidth={24} />}
                     />
-                    <h4>
-                        {' '}
-                        {('' + pokemon.num).padStart(
-                            3,
-                            '0'
-                        )}
-                    </h4>
+                    <h4> {('' + pokemon.num).padStart(3, '0')}</h4>
                 </PokemonImageContainer>
                 <CardContent>
                     <Typography

@@ -18,7 +18,7 @@ export default class HttpUtil {
         return data;
     }
     private static fetchCollection(param: []): any[] {
-        return param.map((item: any) => HttpUtil.parseResponse(item))
+        return param.map((item: any) => HttpUtil.parseResponse(item));
     }
 
     public static parameterByName(name: string, url: string) {
@@ -29,5 +29,5 @@ export default class HttpUtil {
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    };
+    }
 }

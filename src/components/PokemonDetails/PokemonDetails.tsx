@@ -1,27 +1,15 @@
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-    CardContent,
-    Container,
-    Divider,
-    Grid,
-    IconButton,
-    Paper,
-    Typography,
-} from '@material-ui/core';
+import { Container, Divider, Grid, IconButton, Paper, Typography } from '@material-ui/core';
 import { useStyles } from './PokemonDetails.styles';
 import { State, useStoreState } from 'easy-peasy';
 import { StoreModel } from '../../store/models/store';
 import LoadingAlert from '../LoadingAlert';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import {
-    PokemonImageContainer,
-    PokemonTypeChip,
-} from '../PokemonCard/PokemonCard.components';
+import { PokemonTypeChip } from '../PokemonCard/PokemonCard.components';
 import { PokemonDetailsContainer } from './PokemonDetails.components';
 import { getColorForType } from '../../utils/pokemonUtils';
-import PokemonCard from '../PokemonCard';
 import PokemonEvolutionCard from '../PokemonEvolutionCard';
 import PokedexPokemon from '../../objects/PokedexPokemon';
 
@@ -127,25 +115,26 @@ const PokemonDetails = () => {
                 </Grid>
                 <Container className={classes.container}>
                     <Typography variant="h3">{current.name}</Typography>
-                    <Grid container justify="space-evenly" spacing={1} style={{ marginBottom: 1 }}>
+                    <Grid
+                        container
+                        justify="space-evenly"
+                        spacing={1}
+                        style={{ marginBottom: 1 }}
+                    >
                         <Grid item>
                             <Typography color="textSecondary" variant="body2">
                                 Height:{' '}
                                 {`${current.height.value}${current.height.type}`}
                             </Typography>
                         </Grid>
-                        <Grid item>
-                            |
-                        </Grid>
+                        <Grid item>|</Grid>
                         <Grid item>
                             <Typography color="textSecondary" variant="body2">
                                 Weight:{' '}
                                 {`${current.weight.value}${current.weight.type}`}
                             </Typography>
                         </Grid>
-                        <Grid item>
-                            |
-                        </Grid>
+                        <Grid item>|</Grid>
                         <Grid item>
                             <Typography color="textSecondary" variant="body2">
                                 Egg Size: {current.egg}

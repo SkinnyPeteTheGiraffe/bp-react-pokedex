@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { useHistory } from "react-router-dom";
 import { Grid, TextField } from '@material-ui/core';
 import { useStyles } from '../PokedexAppBar/PokedexAppBar.styles';
 import { Actions, State, useStoreActions, useStoreState } from 'easy-peasy';
@@ -16,7 +15,6 @@ const PokeSearchBar = () => {
     const handleUpdate = (input?: string) => {
         updateSearchTerm(input || '');
     };
-    const history = useHistory();
     const [value, setValue] = useState('');
     const classes = useStyles();
     return (
@@ -27,7 +25,7 @@ const PokeSearchBar = () => {
                 clearOnBlur
                 handleHomeEndKeys
                 freeSolo
-                options={data.map(d => d.name)}
+                options={data.map((d) => d.name)}
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,

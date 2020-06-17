@@ -6,5 +6,5 @@ export interface StoreModel {
 }
 
 export const storeModel: StoreModel = {
-    pokemon: pokemonModel
+    pokemon: pokemonModel,
 };

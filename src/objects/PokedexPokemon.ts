@@ -44,8 +44,12 @@ export default class PokedexPokemon implements Pokemon<number, Measurement> {
         this.weight = PokedexPokemon.parseMeasurement(pokemon.weight);
         this.spawnChance = pokemon.spawnChance;
         this.spawnTime = pokemon.spawnTime;
-        this.nextEvolution = PokedexPokemon.parseEvolution(pokemon.nextEvolution);
-        this.prevEvolution = PokedexPokemon.parseEvolution(pokemon.prevEvolution);
+        this.nextEvolution = PokedexPokemon.parseEvolution(
+            pokemon.nextEvolution
+        );
+        this.prevEvolution = PokedexPokemon.parseEvolution(
+            pokemon.prevEvolution
+        );
         this.type = pokemon.type;
         this.weaknesses = pokemon.weaknesses;
     }
@@ -66,12 +70,14 @@ export default class PokedexPokemon implements Pokemon<number, Measurement> {
     private static parseEvolution(
         input: PokemonEvolution<string>[]
     ): PokemonEvolution<number>[] {
-        return input ? input.map(
-            (p) =>
-                ({
-                    name: p.name,
-                    num: parseInt(p.num),
-                } as PokemonEvolution<number>)
-        ) : [];
+        return input
+            ? input.map(
+                  (p) =>
+                      ({
+                          name: p.name,
+                          num: parseInt(p.num),
+                      } as PokemonEvolution<number>)
+              )
+            : [];
     }
 }
