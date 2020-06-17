@@ -2,7 +2,7 @@
 ###### Author: Bobby Plunkett
 ###### Version: 1.0.0
 
-![](https://i.imgur.com/rC1ojvK.png)
+![](https://i.imgur.com/EcoJOGS.png)
 
 ### Description
 A basic Pokédex application containing the following features:
