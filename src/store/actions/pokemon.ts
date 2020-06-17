@@ -25,6 +25,9 @@ export default {
             }
         }
     ),
+    setCurrent: action<PokemonModel, PokedexPokemon>((state, payload) => {
+        state.current = payload;
+    }),
     set: action<PokemonModel, PokedexPokemon[]>((state, payload) => {
         state.list = payload;
     }),
