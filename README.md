@@ -25,5 +25,7 @@ The application will start on http://localhost:3000
 
 ### Details
 * Typescript
+* TSLint & Prettier
 * Material-UI Component Kit
+* Redux (Easy-Peasy)
 * Mobile Responsive
