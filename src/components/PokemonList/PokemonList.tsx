@@ -33,7 +33,6 @@ const PokemonList: FC = () => {
                     <ExpansionPanel>
                         <ExpansionPanelSummary
                             expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
                             <Typography className={classes.heading}>Filter By Type</Typography>
@@ -41,7 +40,7 @@ const PokemonList: FC = () => {
                         <ExpansionPanelDetails>
                             <Grid container justify="flex-start" spacing={2}>
                                 {filters.map((f) => (
-                                    <Grid key={_.kebabCase(f.type)} item>
+                                    <Grid key={_.kebabCase(f.type).toLowerCase() + Date.now()} item>
                                         <ToggleChip
                                             type="type"
                                             targetType={f.type}

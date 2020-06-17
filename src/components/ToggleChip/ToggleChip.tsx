@@ -12,8 +12,8 @@ import { getColorForType } from '../../utils/pokemonUtils';
 
 export type StyledToggleChipProps = {
     selected: boolean,
-    enabledColor: string;
-    disabledColor: string;
+    on: string;
+    off: string;
 };
 
 export type ToggleChipProps<T> = ChipProps & {
@@ -26,12 +26,12 @@ const StyledToggleChip = styled(Chip)<StyledToggleChipProps>`
     width: 100px;
     color: #fafafa;
     text-shadow: 1px 1px 5px #2d2d2d;
-    background-color: ${props => props.selected ? props.enabledColor : props.disabledColor};
+    background-color: ${props => props.selected ? props.on : props.off};
     &:focus {
-        background-color: ${props => props.selected ? props.enabledColor : props.disabledColor};
+        background-color: ${props => props.selected ? props.on : props.off};
     }
     &:hover {
-       background-color: ${props => Color(props.selected ? props.enabledColor : props.disabledColor).darken(0.15).hex()};
+       background-color: ${props => Color(props.selected ? props.on : props.off).darken(0.15).hex()};
     }
 `;
 
@@ -55,8 +55,8 @@ const ToggleChip: FC<ToggleChipProps<PokemonType>> = ({ type, targetType, select
             clickable
             label={targetType}
             selected={checked}
-            enabledColor={color}
-            disabledColor="#BABABA"
+            on={color}
+            off="#BABABA"
             onClick={onClick}
             onDelete={onClick}
             deleteIcon={checked ? <DoneIcon /> : <CloseIcon />}

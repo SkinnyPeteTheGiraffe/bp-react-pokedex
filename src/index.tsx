@@ -21,7 +21,7 @@ ReactDOM.render(
         <Router>
             <StoreProvider store={store}>
                 <CssBaseline>
-                    <StyleRoot className="h-100">
+                    <StyleRoot style={{ flexGrow: 1, display: 'flex' }}>
                         <App />
                     </StyleRoot>
                 </CssBaseline>

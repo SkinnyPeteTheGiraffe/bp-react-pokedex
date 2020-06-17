@@ -9,7 +9,6 @@ import { PokemonType } from '../../types/PokemonType';
 export default {
     display: computed<PokemonModel, PokedexPokemon[], StoreModel, []>(
         (state) => {
-            console.log('wtf');
             return state.list
                 .filter(
                     (d) =>
@@ -57,11 +56,14 @@ export default {
             }
         }
     ),
-    fetch: thunk<PokemonModel>(async (actions) => {
+    fetch: thunk<PokemonModel, void, any, StoreModel, Promise<PokedexPokemon[]>>(async (actions) => {
         const data = await service.fetch();
         if (data && data.pokemon && data.pokemon.length > 0) {
-            actions.set(data.pokemon.map((p) => new PokedexPokemon(p)));
+            let pokemon = data.pokemon.map((p) => new PokedexPokemon(p));
+            actions.set(pokemon);
+            return pokemon;
         }
+        return [];
     }),
     setCurrent: action<PokemonModel, PokedexPokemon>((state, payload) => {
         state.current = payload;

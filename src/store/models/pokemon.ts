@@ -13,7 +13,7 @@ export interface PokemonModel {
     toggleFilter: Action<PokemonModel, ToggleFilter<PokemonType>>;
     set: Action<PokemonModel, PokedexPokemon[]>;
     setCurrent: Action<PokemonModel, PokedexPokemon>;
-    fetch: Thunk<PokemonModel>;
+    fetch: Thunk<Promise<PokedexPokemon[]>>;
     display: Computed<PokemonModel, PokedexPokemon[]>;
     updateSearchTerm: Action<PokemonModel, string>;
 }

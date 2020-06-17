@@ -5,7 +5,8 @@ export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
-            paddingTop: theme.spacing(1),
+            marginTop: theme.spacing(10),
+            paddingTop: theme.spacing(1)
         },
         filters: {
             margin: theme.spacing(2, 0)
